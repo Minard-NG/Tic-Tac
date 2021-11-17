@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+    <link rel="icon" type="image/png" href="images/icon.png" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/21fa939ee3.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="overlay">
+      <div id="confirm_modal">
+        <h1>Game Onboarding!</h1>
+        <h3>
+          Welcome to the most anticipated Tic&nbsp;Tac&nbsp;Toe game on the
+          planet.
+        </h3>
+        <p>
+          Spoiler Alert! No AI integrated... you must play with a friend, so get
+          a buddy close and click the start button to experience the awesomeness
+          with a friend.
+        </p>
+        <small>
+          N/B: Scores are saved locally, so don't panic when your browser closes
+          or goes to sleep :)
+        </small>
+        <button onclick="hideModal()">Start</button>
+      </div>
+    </div>
+    <header>
+      <h1>TIC TAC TOE</h1>
+      <hr />
+
+      <h3>Score</h3>
+      <p>Player X: <span id="Xscore">0</span></p>
+      <p>Player O: <span id="Oscore">0</span></p>
+      <small id="commentary">&nbsp;</small>
+
+      <div id="ctBtn" class="controls">
+        <div id="hmBtn" class="harmburger--show">
+          <span></span><span></span><span></span>
+        </div>
+        <i class="fas fa-volume-up" title="click to mute background music"></i>
+      </div>
+    </header>
+
+    <main>
+      <button id="btn1" class="gameBtn rtBtm"></button>
+      <button id="btn2" class="gameBtn mid"></button>
+      <button id="btn3" class="gameBtn ltBtm"></button>
+      <button id="btn4" class="gameBtn rtBtm"></button>
+      <button id="btn5" class="gameBtn mid"></button>
+      <button id="btn6" class="gameBtn ltBtm"></button>
+      <button id="btn7" class="gameBtn rtBtm edgeBtm"></button>
+      <button id="btn8" class="gameBtn mid edgeBtm"></button>
+      <button id="btn9" class="gameBtn ltBtm edgeBtm"></button>
+    </main>
+
+    <footer>
+      <!-- <button id="startBtn">Start</button> -->
+      <button id="resetBtn" title="Reset game board and players score">
+        <i class="fas fa-redo-alt"></i>
+      </button>
+    </footer>
+    <audio id="bck--music">
+      <source src="audio/mixkit-driving-ambition-32.mp3" type="audio/mp3" />
+    </audio>
+    <audio id="playerx--music">
+      <source src="audio/mixkit-playerx.wav" type="audio/wav" />
+    </audio>
+    <audio id="playero--music">
+      <source src="audio/mixkit-playerO.wav" type="audio/wav" />
+    </audio>
+    <audio id="notif--music">
+      <source src="audio/mixkit-notification.wav" type="audio/wav" />
+    </audio>
+    <audio id="win--music">
+      <source src="audio/mixkit-winning.wav" type="audio/wav" />
+    </audio>
+    <audio id="deuce--music">
+      <source src="audio/mixkit-deuce.wav" type="audio/wav" />
+    </audio>
+    <audio id="reset--music">
+      <source src="audio/mixkit-reset.wav" type="audio/wav" />
+    </audio>
+    <script src="script.js"></script>
+  </body>
+</html>
