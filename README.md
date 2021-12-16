@@ -135,7 +135,7 @@ function play(){ //event handler binded to the game buttons
 }
 ```
 
-Developing the interactive harmburger presented an interesting opportunity to do some CSS3 animation which is something I trying to learn more about and also do some DOM manipulation.
+Developing the interactive harmburger presented an interesting opportunity to do some CSS3 animation which is something I trying to learn more about and also do some DOM manipulation. The key concept was to style three spans to have the harmburger-button shape and on click the first and third span rotates a certain amount of degrees to form a cross while the second span loses visibility. Here is my approach: 
 
 ### Code Snippet showing the html structure for the harmburger-button
 ```html
@@ -147,7 +147,7 @@ Developing the interactive harmburger presented an interesting opportunity to do
   </div>
 ```
 
-### Code Snippet showing the css used without the keyframes rules
+### Code Snippet Showing the CSS Styles
 
 ```css
 .controls {
@@ -166,7 +166,6 @@ Developing the interactive harmburger presented an interesting opportunity to do
 .ct--animate{
     animation: ctanime 200ms linear forwards;
 }
-
 .controls .fas{
     padding-top: 1.25rem;
     font-size: 1.4rem;
@@ -174,7 +173,6 @@ Developing the interactive harmburger presented an interesting opportunity to do
 @keyframes ctanime{
     from{
         height: 1.875rem;
-
     }
     to{
         height: 4.6875rem;      
@@ -186,7 +184,6 @@ Developing the interactive harmburger presented an interesting opportunity to do
   width: 1.625rem;
   height: 0.125rem;
   border-bottom: 0.1875rem solid white;
-  animation: fade-out 200ms ease-in-out forwards;
 }
 .harmburger--show span:not(:last-child) {
   margin-bottom: 0.25rem;
@@ -209,7 +206,84 @@ Developing the interactive harmburger presented an interesting opportunity to do
 .harmburger--toggle span:nth-child(3) {
   animation: fade-in-3 200ms ease-in-out forwards;
 }
+@keyframes fade-out-1 {
+  from {
+    margin-top:11px;
+    transform: rotate(45deg);
+    transform-origin: 40% 0%;
+  }
+  to {
+    margin-top: 0;
+    transform: rotate(0deg);
+    transform-origin: center;
+  }
+}
 
+@keyframes fade-out-2 {
+    from {
+        opacity: 0;
+        visibility: hidden;
+    }
+    to {
+        opacity: 1;
+        visibility: visible;
+    }
+  }
+
+@keyframes fade-out-3 {
+  from {
+    transform: rotate(-45deg);
+    transform-origin: 18% 70%;
+  }
+  to {
+    transform: rotate(0deg);
+    transform-origin: center;
+  }
+}
+
+@keyframes fade-in-1 {
+  to {
+    margin-top:11px;
+    transform: rotate(45deg);
+    transform-origin: 40% 0%;
+  }
+}
+
+@keyframes fade-in-2 {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes fade-in-3 {
+  to {
+    transform: rotate(-45deg);
+    transform-origin: 18% 70%;
+  }
+}
+```
+
+### Code Snippet for the JS that toggles the classList appropriately.
+
+```js
+let hmBtn = document.querySelector('#hmBtn');
+let ctBtn = document.getElementById('ctBtn')
+
+hmBtn.addEventListener('click', function(){
+    notif_sound.play()
+    if(hmBtn.classList.contains('harmburger--toggle')){
+        hmBtn.classList.add('harmburger--show')
+        hmBtn.classList.remove('harmburger--toggle')
+        ctBtn.classList.remove('ct--animate')
+       
+    }else{
+        hmBtn.classList.remove('harmburger--show')
+        hmBtn.classList.add('harmburger--toggle')
+        ctBtn.classList.add('ct--animate')
+        
+    }
+});
 ```
 
 
