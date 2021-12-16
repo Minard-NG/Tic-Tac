@@ -364,7 +364,7 @@ Would continue to learn more about CSS3 animations and improve my knowledge of a
 
 ### Useful resources
 
-- [Mixit | SoundEffects](https://mixkit.co/) - Really found this website helpful in getting the the free sound effects for the game.
+- [Mixit | SoundEffects](https://mixkit.co/) - Really found this website helpful for getting the the free sound effects used in the game.
 
 ## Author
 
