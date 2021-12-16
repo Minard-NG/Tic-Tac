@@ -286,10 +286,52 @@ hmBtn.addEventListener('click', function(){
 });
 ```
 
+To keep track of the player's scores such that game scores are preserved in memory, even when the player closes the browser, I had to utilize the localStorage api. First I check if the localStorage api is supported on the player's browser. If so, I check if there is an existing score variable before creating a new one.  This ensures that the data stored in the localStorage is preserved whenever the player refreshes the page, which would reload the script and potentially overwrite the previous score varible if the check is not performed.
 
+### Code Snippet
 
+```js
+//fetch span with score info
+let Xscore = document.getElementById('Xscore');
+let Oscore = document.getElementById('Oscore');
 
-One key concept I experimented while developing this project was the mobile first approach, where I build for smaller devices and implement media queries to enhance the layout/features as for larger devices. I found it very helpful.
+//Using localStorage to keep track of the score
+
+if(typeof(Storage !== undefined)){
+    if(!localStorage.x){
+        localStorage.x = '0';
+    }
+    if(!localStorage.o){
+        localStorage.o = '0';
+    }
+    Xscore.innerText=localStorage.x;
+    Oscore.innerText = localStorage.o;
+
+}else{
+    commentary.innerText = "Browser does not support client-side storage to keep track of scores";
+}
+```
+
+Whenever a win case is met, I check for the currentPlayer and update the scores in localStorage accordingly (by first fetching the value of the respective player's score from localStorage, converting it to Number type and adding 1 to it, and reassigning the player's score in localStorage the updated value).
+
+```js
+if(winStatus===true){
+  //other codes, doing other awesome stuffs
+  if (temp === 'X') {
+    up_score = Number(localStorage.x ) + 1;
+    localStorage.setItem('x',up_score) ;
+    Xscore.innerText = localStorage.getItem('x');
+    } else {
+      up_score = Number(localStorage.o ) + 1;
+      localStorage.setItem('o',up_score) ;
+      Oscore.innerText = localStorage.getItem('o');
+    }
+}
+```
+
+Engaging sound effects where added to the project using the html audio element. utilizing the htmlmedia api which provides play(), pause(), vloume, loop etc functionalities.
+
+ The mobile first approach, was utilized while developing this project; where I build for smaller devices and implement media queries to enhance the layout/features for larger devices. I found it very helpful.
 
 
 
