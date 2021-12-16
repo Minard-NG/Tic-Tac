@@ -8,7 +8,7 @@ This repo provides my implementation of the classic tic tac toe game. Tic-tac-to
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot-of-my-implementation)
+  - [Screenshot on mobile](#screenshot-on-mobile)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
@@ -24,13 +24,13 @@ This repo provides my implementation of the classic tic tac toe game. Tic-tac-to
 
 Users should be able to:
 
-- See hover states for all interactive elements on the page
-- See a live countdown timer that ticks down every second (do a count till christmas day, my tweak though, cause you know christmas is here)
-- **Bonus**: When a number changes, make the card flip from the middle
+- interact with a three by three grid, in such a way that conforms to the rules of the tic tac toe game.
+- keep track of game scores, even after shutting down the browser.
+- **Bonus**: Introduce interactive media elements to make the game more engaging
 
-### Screenshot of My Implementation
+### Screenshot on Mobile
 
-![Screenshots](./images/screenshot.png)
+![Screenshots](./design/mobile-preview.png)
 
 ### Links
 
