@@ -135,61 +135,94 @@ function play(){ //event handler binded to the game buttons
 }
 ```
 
-One key concept I experimented while developing this project was the mobile first approach, where I build for smaller devices and implement media queries to enhance the layout/features as for larger devices. I found it very helpful.
+Developing the interactive harmburger presented an interesting opportunity to do some CSS3 animation which is something I trying to learn more about and also do some DOM manipulation.
 
-The curve on the cards presented an interesting learning opportunity. It caused me to research if CSS3 had a negative border radius property, which I found it didn't, so I did come up with an interesting work around. I created pseudo-elements for the upper section of each timer card and positioned them relative to the timer cards. Gave them equal width and height plus a border-radius of 50% to make them a circle. Applied a background-color to the pseudo-elements that blends nicely with backgound and then used the top, left, right CSS property to position the circle such that the circle overlaps neatly on the timer card while the other half blends into the background. Also applied a z-index property to give it a nice visual overlapping perspective.
+### Code Snippet showing the html structure for the harmburger-button
+```html
+  <div id="ctBtn" class="controls">
+      <div id="hmBtn" class="harmburger--show">
+          <span></span><span></span><span></span>
+      </div>
+      <i class="fas fa-volume-up" title="click to mute background music"></i>
+  </div>
+```
 
-#### Code snippets
+### Code Snippet showing the css used without the keyframes rules
 
 ```css
-.upper::before {
-  content: "";
-  display: inline-block;
-  width: 5px;
-  height: 5px;
-  background-color: hsl(235, 16%, 14%);
-  border-radius: 50%;
+.controls {
   position: absolute;
-  top: 46%;
-  left: -2%;
+  right: 0px;
+  top: 1.15rem;
+  width: 1.775rem;
+  height: 1.4375rem;
+  font-size: 1.875rem;
+   overflow-y: hidden;
+  
 }
-.upper::after {
-  content: "";
-  display: inline-block;
-  width: 5px;
-  height: 5px;
-  background-color: hsl(235, 16%, 14%);
-  border-radius: 50%;
-  position: absolute;
-  top: 46%;
-  right: -2%;
-  z-index: 99;
+.controls:hover{
+    cursor: pointer;
 }
-```
+.ct--animate{
+    animation: ctanime 200ms linear forwards;
+}
 
-Plugging in the Javascript code for the timer was really exciting. I learnt about JS date and time functions, functional programming and closure. I also learnt this little hack where you can use the slice function to easily implement a leading zero for your timer. 
+.controls .fas{
+    padding-top: 1.25rem;
+    font-size: 1.4rem;
+}
+@keyframes ctanime{
+    from{
+        height: 1.875rem;
 
-#### Code Snippet showing closure and slice hack
-
-```js
-function initializeTime(endTime){
-
-    function updateCounter(){
-        let counterData = getRemainingTime(endTime);
-
-        daySpan.innerText = ('0'+ counterData.days).slice(-2);
-        hourSpan.innerText = ('0' + counterData.hours).slice(-2);
-        minuteSpan.innerText = ('0' + counterData.minutes).slice(-2);
-        secondSpan.innerText = ('0' + counterData.seconds).slice(-2);
-
-        if (counterData.distance <= 0){
-            clearInterval(timeInterval)
-        }
     }
-    updateCounter();
-    let timeInterval = setInterval(updateCounter, 1000);
+    to{
+        height: 4.6875rem;      
+    }
 }
+.harmburger--show span,
+.harmburger--toggle span {
+  display: block;
+  width: 1.625rem;
+  height: 0.125rem;
+  border-bottom: 0.1875rem solid white;
+  animation: fade-out 200ms ease-in-out forwards;
+}
+.harmburger--show span:not(:last-child) {
+  margin-bottom: 0.25rem;
+}
+.harmburger--show span:nth-child(1) {
+  animation: fade-out-1 200ms ease-in-out forwards;
+}
+.harmburger--show span:nth-child(2) {
+  animation: fade-out-2 200ms ease-in-out forwards;
+}
+.harmburger--show span:nth-child(3) {
+  animation: fade-out-3 200ms ease-in-out forwards;
+}
+.harmburger--toggle span:nth-child(1) {
+  animation: fade-in-1 200ms ease-in-out forwards;
+}
+.harmburger--toggle span:nth-child(2) {
+  animation: fade-in-2 200ms ease-in-out forwards;
+}
+.harmburger--toggle span:nth-child(3) {
+  animation: fade-in-3 200ms ease-in-out forwards;
+}
+
 ```
+
+
+
+
+One key concept I experimented while developing this project was the mobile first approach, where I build for smaller devices and implement media queries to enhance the layout/features as for larger devices. I found it very helpful.
+
+
+
+
+
+
+
 
 ### Continued development
 
