@@ -88,8 +88,6 @@ The game flow logic, an onclick event handler is binded to every game button. Th
 let currentPlayer = 'X'; //Player X starts the game
 
 function play(evt){
-   //this variable manages the duece state for the game
-    let deuceStatus = true;
 
     //this check ensures the button triggering the click event
     //has not been clicked before
