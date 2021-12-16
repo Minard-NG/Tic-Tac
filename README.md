@@ -69,19 +69,6 @@ The high level markup for this project is fairly simple.
 </html>
 ```
 
-
-
-
-#### Code Snippet for the grid:
-
-```css
-.grid {
-  //other styles
-  display: grid;
-  grid-template: 0.3fr minmax(6.25rem, 0.2fr) 0.5fr / 1fr;
-}
-```
-
 Using google fonts to add custom fonts for my web projects has been a defacto for me. So I had tried accessing the google fonts website to add custom fonts while developing this project, but all the time I tried, the site would not open on my device. Still researching what the issue is, but in the mean time, I decided to implement the custom 'Red Hat' font, used for this project by dowloading it from font squirrel and using the @font-face selector. It provided a good work around but I noticed some lag whenever the page loads when I deployed it.
 
 #### Code snippet for custom font:
@@ -95,18 +82,56 @@ Using google fonts to add custom fonts for my web projects has been a defacto fo
 }
 ```
 
-The timer section of the web page was also another key section to implement CSS grid. I used 1 row / 4 columns template and the grid gap property and other alignment properties for the implementation. The header section and footer were good candidates for flexbox.
+For the game logic, I implemented a pretty naive brute-force algorithm, were I fetch all the game buttons and continuously check if a winning position has been attained whenever a player makes a valid click. This algorithm helped checked for win and lose cases but for a deuce case, things get a little different. I check for a condition where no player has won the game and all the space on the 3 x 3 grid is filled. The commentary in the header is also updated dynamically as the game is played.
 
-#### Code snippet for the timer grid:
+#### Code snippet for win case:
 
-```css
-main {
-  //other styles
-  display: grid;
-  grid-template: 3fr 1fr / repeat(4, 72px);
-  justify-content: center;
-  align-items: end;
-  gap: 0.9375rem;
+```js
+function checkWin() {
+    const btn1 = document.getElementById('btn1').innerText;
+    const btn2 = document.getElementById('btn2').innerText;
+    const btn3 = document.getElementById('btn3').innerText;
+  //and so on
+
+    //check for win state 1,2,3
+    if ((btn1 === 'X' && btn2 === 'X' && btn3 === 'X') || (btn1 === 'O' && btn2 === 'O' && btn3 === 'O')) {
+        return true;
+    }
+//and so on
+}
+```
+
+#### Code snippet for deuce case:
+
+```js
+function play(){ //event handler binded to the game buttons
+
+    //start with a deuce status of true
+    let deuceStatus = true;
+
+    //check for if a win condition was met
+    winStatus = checkWin()
+
+    //check if the 3 x 3 grid is filled
+        btnList.forEach(function (btn) {
+            if (btn.innerText === '') {
+                deuceStatus = false;
+            }
+        });
+
+    //if 3 x 3 grid is filled and no player has won then perform the action for a deuce
+        if (deuceStatus && !winStatus) {
+            commentary.innerText = `No lucky champ! It's a Deuce!`;
+            deuce_sound.play();
+            setTimeout(function () {
+                currentPlayer = 'X';
+                btnList.forEach(function (btn) {
+                    btn.innerText = '';
+                })
+            }, 600)
+        }
+
+
 }
 ```
 
