@@ -24,8 +24,8 @@ This repo provides my implementation of the classic tic tac toe game. Tic-tac-to
 
 Users should be able to:
 
-- interact with a three by three grid, in such a way that conforms to the rules of the tic tac toe game.
-- keep track of game scores, even after shutting down the browser.
+- Interact with a three by three grid, in such a way that conforms to the rules of the tic tac toe game.
+- Keep track of game scores, even after shutting down the browser.
 - **Bonus**: Introduce interactive media elements to make the game more engaging
 
 ### Screenshot on Mobile
@@ -34,8 +34,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Github](https://github.com/Minard-NG/FrontendMentor-launch-countdown-timer/blob/main/index.html)
-- Live Site URL: [Hosted with Netlify](https://xmaslaunch.netlify.app/)
+- Solution URL: [Github](https://github.com/Minard-NG/Tic-Tac/blob/main/index.html)
+- Live Site URL: [Hosted with Netlify](https://tickytacky.netlify.app/)
 
 ## My process
 
