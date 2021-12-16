@@ -82,6 +82,33 @@ Using google fonts to add custom fonts for my web projects has been a defacto fo
 }
 ```
 
+The game flow logic, an onclick event handler is binded to every game button. The helps to check if the button has been clicked before. If not, it updates the innerText of the button accordingly.
+
+```js
+let currentPlayer = 'X'; //Player X starts the game
+
+function play(evt){
+   //this variable manages the duece state for the game
+    let deuceStatus = true;
+
+    //this check ensures the button triggering the click event
+    //has not been clicked before
+    if (!evt.target.innerText) {
+        //update the innerText of the button clicked
+        evt.target.innerText = currentPlayer;
+         
+        let temp = currentPlayer;
+
+        //toggle the currentPlayer state
+        if (currentPlayer === 'X') {
+            currentPlayer = 'O';
+        } else {
+            currentPlayer = 'X';
+        }
+
+}
+```
+
 For the game logic, I implemented a pretty naive brute-force algorithm, were I fetch all the game buttons and continuously check if a winning position has been attained whenever a player makes a valid click. This algorithm helped checked for win and lose cases but for a deuce case, things get a little different. I check for a condition where no player has won the game and all the space on the 3 x 3 grid is filled. The commentary in the header is also updated dynamically as the game is played.
 
 #### Code snippet for win case:
@@ -130,8 +157,6 @@ function play(){ //event handler binded to the game buttons
                 })
             }, 600)
         }
-
-
 }
 ```
 
@@ -312,7 +337,7 @@ if(typeof(Storage !== undefined)){
 }
 ```
 
-Whenever a win case is met, I check for the currentPlayer and update the scores in localStorage accordingly (by first fetching the value of the respective player's score from localStorage, converting it to Number type and adding 1 to it, and reassigning the player's score in localStorage the updated value).
+Whenever a win case is met, I check for the currentPlayer and update the scores in localStorage accordingly (__by first fetching the value of the respective player's score from localStorage, converting it to Number type and adding 1 to it, then reassigning the player's score in localStorage the updated value__).
 
 ```js
 if(winStatus===true){
@@ -335,22 +360,13 @@ Engaging sound effects where added to the project using the html audio element. 
 
 
 
-
-
-
-
-
 ### Continued development
 
-Would continue to learn more about CSS3 grid and improve my knowledge of algorithms. 
+Would continue to learn more about CSS3 animations and improve my knowledge of algorithms. 
 
 ### Useful resources
 
-- [Countdown Timer](https://www.sitepoint.com/build-javascript-countdown-timer-no-dependencies/) - This is an amazing aritcle which helped me understand the JS date and time function, I love their functional programming style too.
-- [Negative Border Radius in CSS?](https://stackoverflow.com/questions/45339986/negative-border-radius-in-css/45340988) - This stackoverflow question and answer was useful in helping me figure out the implementation of the curve around the cards.
-- [Mozilla Docs | @font-face](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face) - Amazing documentation on MDN web docs to get you started adding custon fonts on your web pages.
-- [How to change the color of an svg element?](https://stackoverflow.com/questions/22252472/how-to-change-the-color-of-an-svg-element) - Helped me figure out how to change the color of svg on hover state.
-- [A useful CSS filter generator](https://codepen.io/sosuke/pen/Pjoqqp) - A cool filter generator program on codepen.io
+- [Mixit | SoundEffects](https://mixkit.co/) - Really found this website helpful in getting the the free sound effects for the game.
 
 ## Author
 
@@ -359,4 +375,4 @@ Would continue to learn more about CSS3 grid and improve my knowledge of algorit
 
 ## Acknowledgments
 
-I would really love to appreciate and make a special shout to Jessica Chan, owner of the blog [coder-coder.com](https://coder-coder.com/) and youtube channel [Coder Coder](https://www.youtube.com/c/TheCoderCoder). Her useful contents, got me trying out this challenge on frontend mentors. I also really appreciate the amazing team behind frontend mentors, I'd totally recommend their platform to anyone trying to build capacity in frontend programming.
+Special thanks to my frontend tutor, Mr Qazeem for tasking me with this project and providing helpful hints when I hit roadblocks.
