@@ -11,7 +11,6 @@ btnList.forEach(function (btn) {
 //fetch audio element for game background music
 //and set the background music defaults
 let back_music = document.querySelector('#bck--music');
-// back_music.play();
 back_music.volume = 0.33;
 back_music.loop = true;
 

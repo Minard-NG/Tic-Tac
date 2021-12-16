@@ -45,23 +45,32 @@ Users should be able to:
 - CSS3
 - JavaScript
 - Flexbox
-- CSS Grid
 - Mobile-first workflow
 - Git and GitHub
 
 ### What I learnt
 
-I have been reading up a couple of articles/books on the importance of semantic HTML and the very many benefits it offers, accessibility being one of major benefits. So currently I try as much to give my HTML structure enough semantic as much as I possibly can; that involves me always asking myself which HTML tag would best semantically convey the importance of every section on the webpage, while ensuring I use alt attributes for images and try to ensure the document flow is in other. Hey yo, I'm probably not yet a 100% complaint but I believe I would keep getting better as I remain more conscious of it. For this project, here is a top-level break down of the semantic layout.
+The high level markup for this project is fairly simple.  
 
 ```html
-<header>Contains the page's header message</header>
-<main>All the awesome timer stuff went in here</main>
-<footer>Contains the social media links</footer>
+<html>
+  <head>
+  </head>
+  <body>
+    <div id='overlay'>
+      <div id="confirm_modal">
+        Used to create the web structure for the custom game onboarding modal
+      </div>
+    </div>
+    <header>Contains the page's header information</header>
+    <main>All the awesome game buttons went in here</main>
+    <footer>Contains the reset button</footer>
+  </body>
+</html>
 ```
 
-The laying out of the page's background was an interesting learning process for me. It provided a good use case for me to implement the ::before and ::after CSS pseudo-selector. I used the ::before to layout the stars svg on the background while the ::after, I used to layout the hills svg on the background. It was really helpful in providing some level of structure without affecting the markup of the document. The background of the page used a linear gradient that flowed between two colors from top to bottom.
 
-The entire page was layed out using the CSS3 grid display property. I have just learnt about CSS grid a couple of weeks ago and decided to test it out with this project, I used 3 rows / 1 column template. It did provide a neat control of the page's flow without much media queries. I'm still trying to wrap my heads around some of the custom units it provides such as: fit-content, auto-fill, minmax() etc. and its use-cases.
+
 
 #### Code Snippet for the grid:
 
