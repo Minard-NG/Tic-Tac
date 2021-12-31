@@ -82,7 +82,7 @@ Using google fonts to add custom fonts for my web projects has been a defacto fo
 }
 ```
 
-The game flow logic, an onclick event handler is binded to every game button. The helps to check if the button has been clicked before. If not, it updates the innerText of the button accordingly.
+For the game flow, an onclick event handler is binded to every game button. The helps to check if the button has been clicked before. If not, it updates the innerText of the button accordingly.
 
 ```js
 let currentPlayer = 'X'; //Player X starts the game
@@ -107,7 +107,7 @@ function play(evt){
 }
 ```
 
-For the game logic, I implemented a pretty naive brute-force algorithm, were I fetch all the game buttons and continuously check if a winning position has been attained whenever a player makes a valid click. This algorithm helped checked for win and lose cases but for a deuce case, things get a little different. I check for a condition where no player has won the game and all the space on the 3 x 3 grid is filled. The commentary in the header is also updated dynamically as the game is played.
+For the game logic, I implemented a pretty naive brute-force algorithm, were I fetch all the game buttons and continuously check if a winning position has been attained, whenever a player makes a valid click. This algorithm helps check for win and lose cases but for a deuce case, things get a little different. I check for a condition where no player has won the game and all the space on the 3 x 3 grid is filled. The commentary in the header is also updated dynamically as the game is played.
 
 #### Code snippet for win case:
 
@@ -158,7 +158,7 @@ function play(){ //event handler binded to the game buttons
 }
 ```
 
-Developing the interactive harmburger presented an interesting opportunity to do some CSS3 animation which is something I trying to learn more about and also do some DOM manipulation. The key concept was to style three spans to have the harmburger-button shape and on click the first and third span rotates a certain amount of degrees to form a cross while the second span loses visibility. Here is my approach: 
+Developing the interactive harmburger presented an interesting opportunity to do some CSS3 animation (__which is something I am trying to learn more about__) and also do some DOM manipulation. The key concept was to style three spans to have the harmburger-button shape and on click the first and third span rotates a certain amount of degrees to form a cross while the second span loses visibility. Here is my approach: 
 
 ### Code Snippet showing the html structure for the harmburger-button
 ```html
@@ -320,7 +320,7 @@ let Oscore = document.getElementById('Oscore');
 
 //Using localStorage to keep track of the score
 
-if(typeof(Storage !== undefined)){
+if(typeof(Storage) !== undefined){
     if(!localStorage.x){
         localStorage.x = '0';
     }
@@ -352,7 +352,7 @@ if(winStatus===true){
 }
 ```
 
-Engaging sound effects where added to the project using the html audio element. utilizing the htmlmedia api which provides play(), pause(), vloume, loop etc functionalities.
+Engaging sound effects where added to the project using the html audio element; utilizing the htmlmedia api which provides play(), pause(), vloume, loop etc functionalities.
 
  The mobile first approach, was utilized while developing this project; where I build for smaller devices and implement media queries to enhance the layout/features for larger devices. I found it very helpful.
 
