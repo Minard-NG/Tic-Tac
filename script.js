@@ -81,7 +81,7 @@ let Oscore = document.getElementById('Oscore')
 
 //Using Localstorage to keep track of the score
 
-if(typeof(Storage !== undefined)){
+if(typeof(Storage) !== undefined){
     if(!localStorage.x){
         localStorage.x = '0';
     }
