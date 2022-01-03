@@ -107,7 +107,7 @@ function play(evt){
 }
 ```
 
-For the game logic, I implemented a pretty naive brute-force algorithm, were I fetch all the game buttons and continuously check if a winning position has been attained, whenever a player makes a valid click. This algorithm helps check for win and lose cases but for a deuce case, things get a little different. I check for a condition where no player has won the game and all the space on the 3 x 3 grid is filled. The commentary in the header is also updated dynamically as the game is played.
+For the game logic, I implemented a pretty naive brute-force algorithm, where I fetch all the game buttons and continuously check if a winning position has been attained, whenever a player makes a valid click. This algorithm helps check for win and lose cases but for a deuce case, things get a little different. I check for a condition where no player has won the game and all the space on the 3 x 3 grid is filled. The commentary in the header is also updated dynamically as the game is played.
 
 #### Code snippet for win case:
 
@@ -354,7 +354,7 @@ if(winStatus===true){
 
 Engaging sound effects where added to the project using the html audio element; utilizing the htmlmedia api which provides play(), pause(), vloume, loop etc functionalities.
 
- The mobile first approach, was utilized while developing this project; where I build for smaller devices and implement media queries to enhance the layout/features for larger devices. I found it very helpful.
+The mobile first approach, was utilized while developing this project; where I build for smaller devices and implement media queries to enhance the layout/features for larger devices. I found it very helpful.
 
 
 
